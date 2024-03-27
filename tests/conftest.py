@@ -83,7 +83,8 @@ def users_data(faker, num_users):
             ],
             "phone_numbers": [],
             "external_accounts": [],
-            "metadata": {},
+            "public_metadata": {},
+            "unsafe_metadata": {},
             "private_metadata": {},
         }
         json_data.append(data)
