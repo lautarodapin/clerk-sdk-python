@@ -13,16 +13,17 @@ readme = "README.md"
 
 [tool.poetry.dependencies]
 python = "^3.11"
-aiohttp = { extras = ["speedups"], version = "^3.7.3" }
-pydantic = " 2.6.4"
+aiohttp = { extras = ["speedups"], version = "^3.9.3" }
+pydantic = "^2.6.4"
+pytest-asyncio = "^0.23.6"
 
 
 [tool.poetry.group.dev.dependencies]
 
-black = "^20.8b1"
-tox = "^3.21.4"
-isort = "^5.7.0"
-Faker = "^6.1.1"
+black = "^24.3.0"
+tox = "^4.14.2"
+isort = "^5.13.2"
+Faker = "^24.4.0"
 pytest-httpserver = "^1.0.10"
 pytest-asyncio = "^0.23.6"
 pytest-spec = "^3.2.0"

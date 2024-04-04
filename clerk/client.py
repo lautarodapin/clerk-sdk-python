@@ -56,17 +56,13 @@ class Client:
         return UsersService(self)
 
     @asynccontextmanager
-    async def get(
-        self, endpoint: str, params: Mapping[str, str] | None = None
-    ) -> aiohttp.ClientResponse:
+    async def get(self, endpoint: str, params: Mapping[str, str] | None = None):
         async with self._session.get(self._make_url(endpoint), params=params) as r:
             await self._check_response_err(r)
             yield r
 
     @asynccontextmanager
-    async def post(
-        self, endpoint: str, data: Any = None, json: Any = None
-    ) -> aiohttp.ClientResponse:
+    async def post(self, endpoint: str, data: Any = None, json: Any = None):
         async with self._session.post(
             self._make_url(endpoint), data=data, json=json
         ) as r:
@@ -74,15 +70,13 @@ class Client:
             yield r
 
     @asynccontextmanager
-    async def delete(self, endpoint: str) -> aiohttp.ClientResponse:
+    async def delete(self, endpoint: str):
         async with self._session.delete(self._make_url(endpoint)) as r:
             await self._check_response_err(r)
             yield r
 
     @asynccontextmanager
-    async def patch(
-        self, endpoint: str, data: Any = None, json: Any = None
-    ) -> aiohttp.ClientResponse:
+    async def patch(self, endpoint: str, data: Any = None, json: Any = None):
         async with self._session.patch(
             self._make_url(endpoint), data=data, json=json
         ) as r:
