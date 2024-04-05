@@ -8,8 +8,6 @@ jobs:
               uses: actions/checkout@v2
             - name: Build docker images
               run: docker-compose build
-            - name: Run docker images
-              run: docker-compose up
             - name: Run tests
               run: |
-                  docker-compose exec app poetry run pytest tests
+                  docker-compose run app poetry run pytest tests
