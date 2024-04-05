@@ -1,0 +1,15 @@
+name: CI
+on: push
+jobs:
+    build:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout repository
+              uses: actions/checkout@v2
+            - name: Build docker images
+              run: docker-compose build
+            - name: Run docker images
+              run: docker-compose up
+            - name: Run tests
+              run: |
+                  docker-compose exec app poetry run pytest tests
