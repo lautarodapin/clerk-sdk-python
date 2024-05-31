@@ -9,8 +9,6 @@ class UsersService(Service):
         """Retrieve a list of all users"""
         async with self._client.get(self.endpoint) as r:
             data = await r.json()
-            print(data)
-            print(type(data))
             return [types.User.model_validate(s) for s in data]
 
     async def get(self, user_id: str) -> types.User:
